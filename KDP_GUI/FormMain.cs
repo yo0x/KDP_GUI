@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace KDP_GUI
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
+        }
+
+        private void modelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

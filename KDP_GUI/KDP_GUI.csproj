@@ -46,14 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormCrtNewModel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormCrtNewModel.Designer.cs">
+      <DependentUpon>FormCrtNewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExistingModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExistingModel.Designer.cs">
+      <DependentUpon>FormExistingModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExistingPredictions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExistingPredictions.Designer.cs">
+      <DependentUpon>FormExistingPredictions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPrediction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPrediction.Designer.cs">
+      <DependentUpon>FormNewPrediction.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCrtNewModel.resx">
+      <DependentUpon>FormCrtNewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExistingModel.resx">
+      <DependentUpon>FormExistingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExistingPredictions.resx">
+      <DependentUpon>FormExistingPredictions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPrediction.resx">
+      <DependentUpon>FormNewPrediction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
