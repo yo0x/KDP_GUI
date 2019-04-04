@@ -35,11 +35,10 @@
             this.newPredictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.pctBoxMain = new System.Windows.Forms.PictureBox();
+            this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxMain)).BeginInit();
             this.SuspendLayout();
@@ -80,18 +79,21 @@
             this.newModelToolStripMenuItem1.Name = "newModelToolStripMenuItem1";
             this.newModelToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.newModelToolStripMenuItem1.Text = "New Model";
+            this.newModelToolStripMenuItem1.Click += new System.EventHandler(this.newModelToolStripMenuItem1_Click);
             // 
             // newPredictionToolStripMenuItem
             // 
             this.newPredictionToolStripMenuItem.Name = "newPredictionToolStripMenuItem";
             this.newPredictionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newPredictionToolStripMenuItem.Text = "New Prediction";
+            this.newPredictionToolStripMenuItem.Click += new System.EventHandler(this.newPredictionToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // modelToolStripMenuItem
             // 
@@ -100,25 +102,12 @@
             this.modelToolStripMenuItem.Text = "Models";
             this.modelToolStripMenuItem.Click += new System.EventHandler(this.modelToolStripMenuItem_Click);
             // 
-            // predictionToolStripMenuItem
-            // 
-            this.predictionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem});
-            this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.predictionToolStripMenuItem.Text = "Predictions";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "New ";
-            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -137,6 +126,13 @@
             this.pctBoxMain.Size = new System.Drawing.Size(770, 276);
             this.pctBoxMain.TabIndex = 2;
             this.pctBoxMain.TabStop = false;
+            // 
+            // predictionToolStripMenuItem
+            // 
+            this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.predictionToolStripMenuItem.Text = "Predictions";
+            this.predictionToolStripMenuItem.Click += new System.EventHandler(this.predictionToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -166,11 +162,10 @@
         private System.Windows.Forms.ToolStripMenuItem newPredictionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pctBoxMain;
+        private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
     }
 }
 
