@@ -61,6 +61,7 @@
             this.btnCloseMdl.TabIndex = 3;
             this.btnCloseMdl.Text = "Close";
             this.btnCloseMdl.UseVisualStyleBackColor = true;
+            this.btnCloseMdl.Click += new System.EventHandler(this.BtnCloseMdl_Click);
             // 
             // btnDelMdl
             // 

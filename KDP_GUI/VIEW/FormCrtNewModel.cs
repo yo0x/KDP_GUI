@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.ML;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,48 @@ namespace KDP_GUI
         {
             InitializeComponent();
         }
+
+        private void BtnBrowseFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Title = "Select a CSV file for testing the model" })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    lbStatusCsvFile.Text = "File Loaded";
+
+                    txtBoxFilePathModelTest.Text = ofd.FileName;
+                }
+            }
+
+        }
+
+        private void BtnCloseNewMdl_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnBrowseFileTrain(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofdTrain = new OpenFileDialog() { Title = "Select a CSV file for trining the model" })
+            {
+                if (ofdTrain.ShowDialog() == DialogResult.OK)
+                {
+                    lbStatusCsvFile.Text = "File Loaded";
+
+                    txtBoxFilePathModelTrain.Text = ofdTrain.FileName;
+                }
+            }
+        }
+
+        private void BtnBuildMdl_Click(object sender, EventArgs e)
+        {
+            MLContext mlContext = new MLContext(seed: 0);
+            ModelDs myMlModel = new ModelDs(txtBoxFilePathModelTrain.Text, txtBoxFilePathModelTest.Text,mlContext);
+            myMlModel.BuildModel();
+            MessageBox.Show("OK Finished");
+
+        }
+
+       
     }
 }

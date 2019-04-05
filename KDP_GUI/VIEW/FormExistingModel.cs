@@ -16,5 +16,10 @@ namespace KDP_GUI
         {
             InitializeComponent();
         }
+
+        private void BtnCloseMdl_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -15,7 +15,7 @@ using Microsoft.Data.DataView;
 
 namespace KDP_GUI
 {
-    class Program
+    class Program2
     {
         private static string  AppPath => Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
         private static string  BaseDataSetsLocation = @"/home/y7x/Documents/DEV_APPS_ONGOING/Orzak_dynamics/KDP/DATA";
@@ -26,7 +26,7 @@ namespace KDP_GUI
 
 
 
-        static void Main(string[] args)
+        static void PRINCIPAL()
         {
             MLContext mLContext = new MLContext(seed: 0);
             BuildTrainEvaluteAndSaveModel(mLContext);
@@ -68,7 +68,7 @@ namespace KDP_GUI
            var trainer = mLContext.Regression.Trainers.StochasticDualCoordinateAscent(labelColumnName:"Label", featureColumnName:"Features");
            var trainingPipeline = dataProcessPipeline.Append(trainer);
 
-           System.Console.WriteLine("training the model");
+            //System.Console.WriteLine("training the model");
            var trainedModel = trainingPipeline.Fit(trainingDataView);
 
            System.Console.WriteLine("Testing model");
