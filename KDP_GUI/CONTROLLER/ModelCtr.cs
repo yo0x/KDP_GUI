@@ -20,15 +20,38 @@ namespace KDP_GUI
     }
     class ModelPopulation
     {
-        
+        public ModelPopulation(ModelDs myData)
+        {
+
+        }
+
+        public void BuildTrainEvaluateAndSaveModel(MLContext mlContext)
+        {
+
+        }
+
+        public void TestSinglePrediction(MLContext mlContext)
+        {
+
+        }
+        public void AccurateDataFilter()
+        {
+
+        }
     }
     class MlPrediction
     {
-        
+        public MlPrediction(MLContext myContext)
+        {
+        }
     }
-    class SaveToPdf
+    public class AreaPredictionCSVReaderGraphRecords
     {
 
+        public void GetDataFromCsv(ModelDs myData, int numMaxRecords)
+        {
+
+        }
     }
     public class ModelDs
     {
@@ -105,6 +128,24 @@ namespace KDP_GUI
             BuildTrainEvaluteAndSaveModel(myModelContext);
         }
 
-    }
-        
+        public Boolean CheckData()
+        {
+            return true;
+        }
+        public void CopyFileToData()
+        {
+
+        }
+
 }
+    public class PlotPreToScreen
+    {
+       public void PlotRegressionChart(MLContext mLContext, AreaPredictionCSVReaderGraphRecords myrecords)
+        {
+
+        }
+    }
+    
+
+}
+

@@ -102,10 +102,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CONTROLLER\MdlKdp.cs" />
-    <Compile Include="CONTROLLER\ModelKdp.cs" />
-    <Compile Include="MODEL\AreaCalc.cs" />
-    <Compile Include="MODEL\AreaCalcPrediction.cs" />
+    <Compile Include="CONTROLLER\CsvNotReadyExeption.cs" />
+    <Compile Include="CONTROLLER\ModelCtr.cs" />
+    <Compile Include="CONTROLLER\MDLCTR_REF_OLD.cs" />
+    <Compile Include="MODEL\DataStructures\AreaCalc.cs" />
+    <Compile Include="MODEL\DataStructures\AreaCalcPrediction.cs" />
+    <Compile Include="VIEW\CurrentPrediction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\CurrentPrediction.Designer.cs">
+      <DependentUpon>CurrentPrediction.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\FormCrtNewModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +145,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="VIEW\CurrentPrediction.resx">
+      <DependentUpon>CurrentPrediction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\FormCrtNewModel.resx">
       <DependentUpon>FormCrtNewModel.cs</DependentUpon>
     </EmbeddedResource>
