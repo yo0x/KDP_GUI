@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace KDP_GUI.CONTROLLER
 {
-    public class EmployeeListNotFoundException : Exception
+    public class CsvNotReadyException : Exception
     {
-        public EmployeeListNotFoundException()
+        public CsvNotReadyException()
         {
         }
 
         public void CsvFileNotValid(string message)
-            : base(message)
+            
         {
         }
 
         public void CsvFileEmpty(string message)
-            : base(message )
+            
         {
         }
     }

@@ -10,64 +10,23 @@ using Microsoft.Data.DataView;
 using Microsoft.ML.Data;
 using static Microsoft.ML.Transforms.NormalizingEstimator;
 using KDP_GUI.DataStructures;
-
+using KDP_GUI.CONTROLLER;
+using CsvHelper;
 
 namespace KDP_GUI
 {
-    class MdlKdp
-    {
-
-    }
+    
     class ModelPopulation
     {
-        public ModelPopulation(ModelDs myData)
-        {
+        private MLContext mlContext;
+        private static string pathDataTrain = @"";
+        private static string pathDataTest = @"";
+        private static string ModelPath = $"C:/Users/userr/source/repos/KDP_GUI/KDP_GUI/KinneretMLmodel.zip";
 
-        }
 
         public void BuildTrainEvaluateAndSaveModel(MLContext mlContext)
         {
-
-        }
-
-        public void TestSinglePrediction(MLContext mlContext)
-        {
-
-        }
-        public void AccurateDataFilter()
-        {
-
-        }
-    }
-    class MlPrediction
-    {
-        public MlPrediction(MLContext myContext)
-        {
-        }
-    }
-    public class AreaPredictionCSVReaderGraphRecords
-    {
-
-        public void GetDataFromCsv(ModelDs myData, int numMaxRecords)
-        {
-
-        }
-    }
-    public class ModelDs
-    {
-        private static string pathDataTrain;
-        private static string pathDataTest;
-        //private static string ModelPath = $"KinneretMLmodel{DateTime.Now:yyyy-MM-dd_hh-mm-ss-fff}.zip";
-        private static string ModelPath = $"C:/Users/userr/source/repos/KDP_GUI/KDP_GUI/KinneretMLmodel.zip";
-        private static string BaseModelPath = @".";
-        private MLContext myModelContext;
-        public ModelDs(string datatraingPath, string dataTestPath, MLContext myContext)
-        {
-            pathDataTest = dataTestPath;
-            pathDataTrain = datatraingPath;
-            myModelContext = myContext;
             
-
         }
         private static ITransformer BuildTrainEvaluteAndSaveModel(MLContext mLContext)
         {
@@ -122,25 +81,133 @@ namespace KDP_GUI
 
 
         }
-
-        public void BuildModel()
+        public float TestSinglePrediction(float valTemp, float valFloor1, float valFloor2, float valFloor3, float valFloor4)
         {
-            BuildTrainEvaluteAndSaveModel(myModelContext);
+            //1 hay q definir el MLContext ? cuando se pasa de from a form?
+            //hay q decidir como se carga el modelo>?
+            var areaCalcSample = new AreaCalc()
+            {
+                //21,70,58,55,59,167
+                temperature = valTemp,
+                floor1 = valFloor1,
+                floor2 = valFloor2,
+                floor3 = valFloor3,
+                floor4 = valFloor4,
+                areaEvaluated = 0
+            };
+            ITransformer trainedModel;
+            using (var stream = new FileStream(ModelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                trainedModel = mlContext.Model.Load(stream);
+            }
+
+            var predEngine = trainedModel.CreatePredictionEngine<AreaCalc, AreaCalcPrediction>(mlContext);
+
+            var resultprediction = predEngine.Predict(areaCalcSample);
+            //System.Console.WriteLine($"+++++Predicted Area population amount {resultprediction.AreaCalcAmount:0}+++ Actual fare: ? +++++++++++++++++++++++++++");
+            return (resultprediction.AreaCalcAmount);
         }
+
+        public void AccurateDataFilter()
+        {
+
+        }
+    }
+    class MlPrediction
+    {
+        public MlPrediction(MLContext myContext)
+        {
+        }
+    }
+    public class AreaPredictionCSVReaderGraphRecords
+    {
+
+        public void GetDataFromCsv(ModelDs myData, int numMaxRecords)
+        {
+
+        }
+    }
+    public class ModelDs
+    {
+        private static string pathDataTrain;
+        private static string pathDataTest;
+        private string[] csvFiles = { pathDataTrain, pathDataTest };
+
+        private static string pathFilesAfterChecked;
+        //private static string ModelPath = $"KinneretMLmodel{DateTime.Now:yyyy-MM-dd_hh-mm-ss-fff}.zip";
+        private static string BaseModelPath = @".";
+        private MLContext myModelContext;
+
+        public ModelDs(string BaseDataSetLocation, string TrainDataPath, string TestDataPath, string BaseModelsPath, string ModelPath)
+        {
+
+        }
+        public ModelDs(string datatraingPath, string dataTestPath, MLContext myContext)
+        {
+            pathDataTest = dataTestPath;
+            pathDataTrain = datatraingPath;
+            myModelContext = myContext;
+                
+
+        }
+        //temperature,floor1,floor2,floor3,floor4,areaEvaluated
+        //https://blog.bitscry.com/2018/01/26/checking-for-csv-column-headers-in-c/
 
         public Boolean CheckData()
         {
+
+            foreach ( string  file in csvFiles)
+            {
+                CsvReader csv = new CsvReader(File.OpenText(file));
+                csv.Read();
+                csv.ReadHeader();
+                List<string> headers = csv.Context.HeaderRecord.ToList();
+                if (!headers.Exists(x => x == "temperature"))
+                {
+                    throw new CsvNotReadyException();
+
+                }
+                else if (!headers.Exists(x => x == "floor1"))
+                {
+                    throw new CsvNotReadyException();
+                }
+                else if (!headers.Exists(x => x == "floor2"))
+                {
+                    throw new CsvNotReadyException();
+                }
+                else if (!headers.Exists(x => x == "floor3"))
+                {
+                    throw new CsvNotReadyException();
+                }
+                else if (!headers.Exists(x => x == "floor4"))
+                {
+                    throw new CsvNotReadyException();
+                }
+                else if (!headers.Exists(x => x == "areaEvaluated"))
+                {
+                    throw new CsvNotReadyException();
+                }
+            }
+            
+
             return true;
         }
         public void CopyFileToData()
         {
-
+            foreach (string file in csvFiles)
+            {
+                File.Copy(file, pathFilesAfterChecked);
+            }
         }
 
-}
+}//Done 
     public class PlotPreToScreen
     {
        public void PlotRegressionChart(MLContext mLContext, AreaPredictionCSVReaderGraphRecords myrecords)
+        {
+
+        }
+        public void MakePrediction()
         {
 
         }

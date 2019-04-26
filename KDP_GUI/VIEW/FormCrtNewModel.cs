@@ -16,6 +16,7 @@ namespace KDP_GUI
         public FormCrtNewModel()
         {
             InitializeComponent();
+
         }
 
         private void BtnBrowseFile_Click(object sender, EventArgs e)
@@ -59,6 +60,9 @@ namespace KDP_GUI
 
         }
 
-       
+        private void FormCrtNewModel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

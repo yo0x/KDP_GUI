@@ -38,6 +38,7 @@
             this.btnBrowseFileTrain = new System.Windows.Forms.Button();
             this.txtBoxFilePathModelTrain = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnPrepare = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBrowseFileTest
@@ -78,7 +79,7 @@
             // 
             // btnBuildMdl
             // 
-            this.btnBuildMdl.Location = new System.Drawing.Point(370, 271);
+            this.btnBuildMdl.Location = new System.Drawing.Point(345, 271);
             this.btnBuildMdl.Name = "btnBuildMdl";
             this.btnBuildMdl.Size = new System.Drawing.Size(75, 23);
             this.btnBuildMdl.TabIndex = 4;
@@ -130,11 +131,21 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Training data csv file:";
             // 
+            // btnPrepare
+            // 
+            this.btnPrepare.Location = new System.Drawing.Point(200, 271);
+            this.btnPrepare.Name = "btnPrepare";
+            this.btnPrepare.Size = new System.Drawing.Size(75, 23);
+            this.btnPrepare.TabIndex = 6;
+            this.btnPrepare.Text = "Prepare";
+            this.btnPrepare.UseVisualStyleBackColor = true;
+            // 
             // FormCrtNewModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 332);
+            this.Controls.Add(this.btnPrepare);
             this.Controls.Add(this.lbStatusCsvFile);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBuildMdl);
@@ -147,6 +158,7 @@
             this.Controls.Add(this.btnBrowseFileTest);
             this.Name = "FormCrtNewModel";
             this.Text = "KDP - Create new Machie Learnig Model";
+            this.Load += new System.EventHandler(this.FormCrtNewModel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +176,6 @@
         private System.Windows.Forms.TextBox txtBoxFilePathModelTrain;
         private System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Button btnBrowseFileTrain;
+        private System.Windows.Forms.Button btnPrepare;
     }
 }
